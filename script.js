@@ -1,29 +1,27 @@
-//your JS code here. If required.
-document.getelementById('userform').addEventListener('submit',function(e){
-	e.preventDefault();//prevent default form submission behaviour
-	//get the input values
-	const name=document.getElementById('name').value;
-	const age=document.getElementById('age').value;
-	//validate both fields are empty
-	if(name=""|| age===""){
+document.getElementById('userform').addEventListener('submit', function(e){
+	e.preventDefault();
+	const name = document.getElementById('name').value;
+	const age = document.getElementById('age').value;
+
+	if(name === "" || age === ""){
 		alert('Please fill in both fields.');
 		return;
 	}
-	//create a new promise for the form submission
-	new promise(function(resolve,reject){
-		setTimeout(()=>{
-			if(age>=18{
+
+	new Promise(function(resolve, reject){
+		setTimeout(() => {
+			if(age >= 18){
 				resolve();
 			}
 			else{
 				reject();
 			}
-		},4000);//resolve or reject after 4000 seconds
-			})
-	.then(function(){
+		}, 4000);
+	})
+	.then(() => {
 		alert(`Welcome, ${name}. You can vote.`)
-	});
-	.catch(function(){
+	})
+	.catch(() => {
 		alert(`Oh sorry ${name}. You aren't old enough.`)
 	});
-}
+});
